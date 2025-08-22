@@ -8,9 +8,9 @@ A simple yet powerful PySide6 + OpenCV desktop application for converting full-w
 
 ## Features
 
-- **Convert SBS images & videos** to red/cyan anaglyph (classic 3D glasses effect)
+- **Convert Full Width SBS images & videos** to red/cyan anaglyph (classic 3D glasses effect)
 - **Keyframing:** Set focus/desaturation/mode for individual frames (videos)
-- **Supports Color, Half-color, and Gray anaglyph modes**
+- **Different modes:** Supports Color, Half-color, and Gray anaglyph modes
 - **Frame interpolation:** Linear or stepped parameter transitions
 - **Hardware acceleration:** Uses OpenCL (via OpenCV UMat) if available
 - **Multithreaded video export** with progress dialog and cancel support
