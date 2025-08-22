@@ -2,8 +2,7 @@
 
 A simple yet powerful PySide6 + OpenCV desktop application for converting full-width Side-by-Side (SBS) stereo images or videos into red/cyan anaglyphs. Designed for efficiency, flexibility, and user control — with GPU acceleration, frame-level keyframing, and modern GUI.
 
-![App Screenshot](<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/50b75746-4052-4304-967a-1ff4fc8fa308" />
-) <!-- Replace with your actual screenshot if desired -->
+![App Screenshot](<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/50b75746-4052-4304-967a-1ff4fc8fa308" />)
 
 ---
 
