@@ -14,10 +14,8 @@ A simple yet powerful PySide6 + OpenCV desktop application for converting full-w
 - **Frame interpolation:** Linear or stepped parameter transitions
 - **Hardware acceleration:** Uses OpenCL (via OpenCV UMat) if available
 - **Multithreaded video export** with progress dialog and cancel support
-- **Batch image/video export, works with common formats**
 - **Intuitive PySide6 GUI** with keyboard shortcuts for speedy workflow
 - **No audio in exported videos (yet)**
-- **Cross-platform (Windows, Linux, MacOS) with Python 3.7+**
 
 ---
 
@@ -33,6 +31,8 @@ Install all dependencies with:
 ```
 pip install PySide6 opencv-python numpy
 ```
+🟢If you download **.EXE** file (for Windows), no need to install any requirement.
+Just download and run.
 
 ---
 
