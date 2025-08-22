@@ -31,7 +31,7 @@ Install all dependencies with:
 ```
 pip install PySide6 opencv-python numpy
 ```
-🟢If you download **.EXE** file (for Windows), no need to install any requirement.
+🟢If you download **.EXE** file (for Windows), no need to install any requirement.  
 Just download and run.
 
 ---
