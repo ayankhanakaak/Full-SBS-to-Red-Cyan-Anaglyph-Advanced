@@ -75,20 +75,6 @@ Just download and run.
 - **Shift + K:** Delete keyframe
 - **Ctrl + Shift + K:** Clear all keyframes
 
-(See app UI for more.)
-
----
-
-## Building a Standalone EXE
-
-For Windows users, you can create a single-file executable with:
-
-```
-pyinstaller --onefile --windowed --icon="your_icon.ico" --add-data "your_icon.ico;." Full-SBS-to-Red-Cyan-Anaglyph-Advanced-V.22.08.2025-1.py
-```
-
-See [PyInstaller documentation](https://pyinstaller.org/) for details.
-
 ---
 
 ## Screenshot
