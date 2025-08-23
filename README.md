@@ -39,7 +39,7 @@ Just download and run.
 ## Usage
 
 1. **Clone or download** this repository.
-2. **Move in directory** where `Full SBS to Red-Cyan Anaglyph Advanced - V.22.08.2025-1.py` is located.
+2. **Move inside the directory** where `Full SBS to Red-Cyan Anaglyph Advanced - V.22.08.2025-1.py` is located.
 3. **Run the application:**
 
    ```
@@ -64,8 +64,11 @@ Just download and run.
 
 - **Space:** Play/Pause video
 - **Page Up / Page Down:** Previous/Next frame
-- **Left / Right:** Decrease/Increase focus
+- **Left / Right:** Decrease/Increase focus by 1px
+- **Shift + Left/Right:** Decrease/Increse focus by 5px
 - **Up / Down:** Decrease/Increase desaturation
+- **Home:** Move at first frame
+- **End:** Move at last frame
 - **Ctrl + O:** Open file
 - **Ctrl + E:** Export
 - **K:** Add/Update keyframe
