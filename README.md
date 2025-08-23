@@ -85,9 +85,8 @@ GPL-3.0 — see [LICENSE](LICENSE) for details.
 
 ## Author
 
-Developed by [Your Name or Alias]  
-[Your Website or Contact Link, if desired]
+Developed by Ayan Khan  
 
 ---
 
-*Pull requests and feedback are welcome! Enjoy 3D!*
+*Feedbacks are welcome! Enjoy 3D!*
