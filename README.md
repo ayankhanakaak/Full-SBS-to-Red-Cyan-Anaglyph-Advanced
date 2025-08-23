@@ -21,7 +21,7 @@ A simple yet powerful PySide6 + OpenCV desktop application for converting full-w
 
 ## Requirements
 
-- Python 3.7 or higher
+- [Python](https://www.python.org/downloads/) (Recommended Version [3.13.5](https://www.python.org/downloads/release/python-3135/))
 - [PySide6](https://pypi.org/project/PySide6/)
 - [opencv-python](https://pypi.org/project/opencv-python/)
 - [numpy](https://pypi.org/project/numpy/)
