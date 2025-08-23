@@ -77,15 +77,9 @@ Just download and run.
 
 ---
 
-## Screenshot
-
-Feel free to add a screenshot here for better visibility.
-
----
-
 ## License
 
-MIT — see [LICENSE](LICENSE) for details.
+GPL-3.0 — see [LICENSE](LICENSE) for details.
 
 ---
 
