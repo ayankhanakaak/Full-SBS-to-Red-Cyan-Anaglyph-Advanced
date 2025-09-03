@@ -1,5 +1,5 @@
 #Simple PySide6 + OpenCV app for converting full-width SBS to red/cyan anaglyph.
-#Version: 22.08.2025-1
+#Version: 3.9.2025-1
 #Install: pip install PySide6 opencv-python numpy
 
 import sys
@@ -16,7 +16,7 @@ def resource_path(relative_path):
     if hasattr(sys, '_MEIPASS'):  # PyInstaller temp folder
         return os.path.join(sys._MEIPASS, relative_path)
     return os.path.join(os.path.abspath("."), relative_path)
-icon_path = resource_path("Full SBS to Anaglyph - Icon.ico")
+icon_path = resource_path("Icon.ico")
 
 # --- KEYFRAMING HELPERS (NEW) ---
 def clamp(val, lo, hi):
@@ -258,6 +258,14 @@ class VideoPlayer(QtWidgets.QMainWindow):
         self.export_btn = QtWidgets.QPushButton("Export")
         self.export_btn.clicked.connect(self.export_output)
         self.export_btn.setEnabled(False)
+        self.fps_mode_combo = QtWidgets.QComboBox()
+        self.fps_mode_combo.addItems([
+            "Custom FPS - best if you know input video FPS",
+            "Frames and Duration Based FPS - 2nd best option",
+            "OpenCV Based FPS - last resort"
+        ])
+        self.fps_mode_combo.setCurrentText("Frames and Duration Based FPS - 2nd best option")
+        self.fps_mode_combo.currentIndexChanged.connect(self.on_fps_mode_changed)
 
         #Playback controls
         self.play_btn = QtWidgets.QPushButton("Play")
@@ -320,7 +328,10 @@ class VideoPlayer(QtWidgets.QMainWindow):
         top_bar = QtWidgets.QHBoxLayout()
         top_bar.addWidget(self.open_btn)
         top_bar.addWidget(self.export_btn)
+        top_bar.addWidget(self.fps_mode_combo)
         top_bar.addStretch(1)
+        # Initialize custom FPS variable
+        self.custom_fps = None
 
         play_bar = QtWidgets.QHBoxLayout()
         play_bar.addWidget(self.play_btn)
@@ -382,6 +393,22 @@ class VideoPlayer(QtWidgets.QMainWindow):
         self.update_labels_and_refresh()
         
         self.setWindowIcon(QtGui.QIcon('Full SBS to Anaglyph - Icon.ico'))
+        
+    def on_fps_mode_changed(self):
+        mode = self.fps_mode_combo.currentText()
+        if mode == "Custom FPS - best if you know input video FPS":
+            fps, ok = QtWidgets.QInputDialog.getDouble(
+                self, "Custom FPS - best if you know input video FPS", "Enter FPS for export (minimum: 1):", decimals=3)
+            if ok:
+                if fps < 1.0:
+                    fps = 1.0
+                self.custom_fps = fps
+            else:
+                # If user cancels input, reset to default
+                self.fps_mode_combo.setCurrentText("Frames and Duration Based FPS - 2nd best option")
+                self.custom_fps = None
+        else:
+            self.custom_fps = None
 
     # ------- Keyframing logic (NEW) -------
     def on_interp_changed(self):
@@ -708,8 +735,20 @@ class VideoPlayer(QtWidgets.QMainWindow):
         sample_out = anaglyph_umat(left0, right0, focus_px, mode, desat_percent)
         h, w = sample_out.shape[:2]
 
+        if self.fps_mode_combo.currentText() == "Custom FPS - best if you know input video FPS" and self.custom_fps is not None:
+            export_fps = self.custom_fps
+        elif self.fps_mode_combo.currentText() == "Frames and Duration Based FPS - 2nd best option":
+            total_frames = int(self.cap.get(cv2.CAP_PROP_FRAME_COUNT)) or 1
+            if self.fps > 0:
+                duration_sec = total_frames / self.fps
+            else:
+                duration_sec = total_frames / 30.0  # fallback
+            export_fps = total_frames / duration_sec if duration_sec > 0 else 30.0
+        else:
+            export_fps = self.fps if self.fps > 0 else 30.0
+
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-        writer = cv2.VideoWriter(path, fourcc, self.fps, (w, h))
+        writer = cv2.VideoWriter(path, fourcc, export_fps, (w, h))
         if not writer.isOpened():
             QtWidgets.QMessageBox.critical(self, "Error", "Failed to open VideoWriter.")
             return
@@ -768,7 +807,7 @@ class VideoPlayer(QtWidgets.QMainWindow):
                     data = q_dec.get()
                     if data is None:
                         break
-                    idx, frm = q_dec.get()
+                    idx, frm = data
                     if idx is None:
                         break
                     left, right = split_full_sbs(frm)
