@@ -40,11 +40,11 @@ Just download and run.
 ## Usage
 
 1. **Clone or download** this repository.
-2. **Move inside the directory** where `Full SBS to Red-Cyan Anaglyph Advanced - V.22.08.2025-1.py` is located.
+2. **Move inside the directory** where `Full SBS to Red-Cyan Anaglyph Advanced - V.03.09.2025-1.py` is located.
 3. **Run the application:**
 
    ```
-   python "Full SBS to Red-Cyan Anaglyph Advanced - V.22.08.2025-1.py"
+   python "Full SBS to Red-Cyan Anaglyph Advanced - V.03.09.2025-1.py"
    ```
 
 4. **Open a full-width SBS image or video**
@@ -54,6 +54,7 @@ Just download and run.
    - Switch anaglyph mode (Color, Half-color, Gray)
    - Modify focus and desaturation
    - Use keyframing for complex video exports
+   - Switch FPS mode (Custom, Frames and Duration Based, OpenCV Based)
 
 6. **Export:**
    - Export an image as `.png`
