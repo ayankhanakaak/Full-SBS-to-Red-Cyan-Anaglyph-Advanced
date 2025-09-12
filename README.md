@@ -40,11 +40,11 @@ Just download and run.
 ## Usage
 
 1. **Clone or download** this repository.
-2. **Move inside the directory** where `Full SBS to Red-Cyan Anaglyph Advanced - V.03.09.2025-1.py` is located.
+2. **Move inside the directory** where `Full SBS to Red-Cyan Anaglyph Advanced - V.03.09.2025-2.py` is located.
 3. **Run the application:**
 
    ```
-   python "Full SBS to Red-Cyan Anaglyph Advanced - V.03.09.2025-1.py"
+   python "Full SBS to Red-Cyan Anaglyph Advanced - V.03.09.2025-2.py"
    ```
 
 4. **Open a full-width SBS image or video**
