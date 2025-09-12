@@ -1,5 +1,5 @@
 #Simple PySide6 + OpenCV app for converting full-width SBS to red/cyan anaglyph.
-#Version: 3.9.2025-1
+#Version: 3.9.2025-2
 #Install: pip install PySide6 opencv-python numpy
 
 import sys
@@ -271,9 +271,9 @@ class VideoPlayer(QtWidgets.QMainWindow):
         self.play_btn = QtWidgets.QPushButton("Play")
         self.play_btn.clicked.connect(self.toggle_play)
         self.prev_btn = QtWidgets.QPushButton("⟨")
-        self.prev_btn.clicked.connect(lambda: self.step_frames(-1))
+        self.prev_btn.clicked.connect(lambda: self.step_frames(self.fps*(-10)))
         self.next_btn = QtWidgets.QPushButton("⟩")
-        self.next_btn.clicked.connect(lambda: self.step_frames(1))
+        self.next_btn.clicked.connect(lambda: self.step_frames(self.fps*10))
 
         #Timeline
         self.time_label = QtWidgets.QLabel("00:00 / 00:00")
