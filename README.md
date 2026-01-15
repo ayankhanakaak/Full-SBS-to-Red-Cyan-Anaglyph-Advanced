@@ -16,7 +16,6 @@ A simple yet powerful PySide6 + OpenCV desktop application for converting full-w
 - **Multithreaded video export** with progress dialog and cancel support
 - **Intuitive PySide6 GUI** with keyboard shortcuts for speedy workflow
 - **Multiple FPS Methods:** Custom FPS, Frames and Duration Based FPS and OpenCV Based FPS
-- **No audio in exported videos (yet)**
 
 ---
 
